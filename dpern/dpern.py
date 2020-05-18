@@ -92,13 +92,3 @@ def describe(number):
         result = rreplace(result, " و", "", 1).strip()
 
     return result
-
-if __name__ == "__main__":
-    args = sys.argv
-
-    if len(args) < 2:
-        error_message = "Make sure to specify a number as the first argument."
-        print(error_message)
-        exit(1)
-    else:
-        print(describe(args[1]))
