@@ -18,7 +18,10 @@ And use it like this:
 
 ```python
 print(dpern.describe("35"))
-# output: سی و پنج
+# سی و پنج
+
+print(dpern.describe("۹۹۹"))
+# نهصد و نود و نه
 ```
 
 If you want to use it in the command line, you can run it like this:
@@ -29,4 +32,4 @@ $ python -m dpern 10
 
 $ python -m dpern ۱۲۸
 صد و بیست و هشت
-```bash
+```
