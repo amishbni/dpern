@@ -3,3 +3,8 @@
 
 # __pycache__ directory
 **/__pycache__
+
+# build and dist directories
+/build
+/dist
+/dpern.egg-info
