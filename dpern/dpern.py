@@ -33,6 +33,9 @@ def describe(number):
 
     number = fa_to_en(number)
 
+    if len(number) > 102:
+        raise ValueError("Number is too large to describe.")
+
     def describe3(number):
         ones = {1: "یک", 2: "دو", 3: "سه", 4: "چهار", 5: "پنج",
                 6: "شش", 7: "هفت", 8: "هشت", 9: "نه"}
