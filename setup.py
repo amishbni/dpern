@@ -6,7 +6,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="dpern",
-    version="0.0.2",
+    version="0.0.3",
     description="Describe PERsian Numbers",
     long_description=README,
     long_description_content_type="text/markdown",
