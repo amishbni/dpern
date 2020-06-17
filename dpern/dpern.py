@@ -19,8 +19,10 @@ def fa_to_en(text):
         '۹': '9',
         '.': '.',
     }
-    pattern = "|".join(map(re.escape, mapping.keys()))
-    return re.sub(pattern, lambda m: mapping[m.group()], str(text))
+    return re.sub(
+        "|".join(map(re.escape, mapping.keys())),
+        lambda m: mapping[m.group()],
+        str(text))
 
 def describe(number):
     try:
