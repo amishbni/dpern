@@ -23,7 +23,6 @@ def fa_to_en(text):
 def describe(number):
     try:
         int(number)
-        number = str(number)
     except Exception:
         warn_message = ("Cannot convert string to int. "
                         "Make sure to specify a number.")
