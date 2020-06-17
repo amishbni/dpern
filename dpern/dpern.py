@@ -21,12 +21,7 @@ def fa_to_en(text):
         str(text))
 
 def describe(number):
-    try:
-        int(number)
-    except Exception:
-        warn_message = ("Cannot convert string to int. "
-                        "Make sure to specify a number.")
-        logging.warning(warn_message)
+    assert int(number) >= 0
 
     number = fa_to_en(number)
 
