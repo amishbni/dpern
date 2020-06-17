@@ -1,9 +1,5 @@
 import logging, sys
 
-def rreplace(s, old, new, occurrence):
-    li = s.rsplit(old, occurrence)
-    return new.join(li)
-
 def fa_to_en(text):
     import re
     mapping = {
@@ -84,15 +80,11 @@ def describe(number):
     thousand_separated = f'{int(number):,}'.split(",")
     length = len(thousand_separated)
     result = ""
+    delimiter = ""
     for i in range(length):
         num = thousand_separated[i]
         if int(num) != 0:
-            described = describe3(num)
-            result += f"{described} {names[length-i-1]} و "
-
-    if result.strip()[-2:] == " و":
-        result = rreplace(result, " و", "", 1).strip()
-    if result.strip()[-2:] == " و":
-        result = rreplace(result, " و", "", 1).strip()
+            result += f"{delimiter}{describe3(num)}{' ' if i != length-1 else ''}{names[length-i-1]}"
+            delimiter = " و "
 
     return result
