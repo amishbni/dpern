@@ -81,8 +81,7 @@ def describe(number):
     length = len(thousand_separated)
     result = ""
     delimiter = ""
-    for i in range(length):
-        num = thousand_separated[i]
+    for i, num in enumerate(thousand_separated):
         if int(num) != 0:
             result += f"{delimiter}{describe3(num)}{' ' if i != length-1 else ''}{names[length-i-1]}"
             delimiter = " و "
