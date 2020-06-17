@@ -47,27 +47,27 @@ def describe(number):
         hundreds = {1: "صد", 2: "دویست", 3: "سیصد", 4: "چهارصد", 5: "پانصد",
                 6: "ششصد", 7: "هفتصد", 8: "هشتصد", 9: "نهصد"}
 
-        position = length = len(number)
+        length = len(number)
         result = ""
-        for i in range(length):
-            ichar = int(number[i])
-            if position == 3:
-                if ichar != 0:
-                    result += f"{hundreds[ichar]} و "
-                position -= 1
-            elif position == 2:
-                if ichar == 1 and (10 < int(number[-2:]) < 20):
-                    result += f"{teens[int(number[-1:])]} و "
-                    position -= 1
-                elif ichar != 0:
-                    result += f"{tens[ichar]} و "
-                position -= 1
+        delimiter = ""
+        for i, num in enumerate(number):
+            ichar = int(num)
+            position = length - i - 1
+            if ichar == 0:
+                continue
+            if position == 2:
+                result += f"{delimiter}{hundreds[ichar]}"
             elif position == 1:
-                if ichar != 0:
-                    result += f"{ones[ichar]} و "
-                position -= 1
+                if ichar == 1 and (10 < int(number[-2:]) < 20):
+                    result += f"{delimiter}{teens[int(number[-1:])]}"
+                    break
+                else:
+                    result += f"{delimiter}{tens[ichar]}"
+            elif position == 0:
+                result += f"{delimiter}{ones[ichar]}"
+            delimiter = " و "
 
-        return result[:-3]
+        return result
 
     names = ["", "هزار", "میلیون", "میلیارد", "بیلیون", "بیلیارد", "تریلیون",
             "تریلیارد", "کوآدریلیون", "کادریلیارد", "کوینتیلیون", "کوانتینیارد",
