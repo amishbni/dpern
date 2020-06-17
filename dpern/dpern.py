@@ -85,11 +85,10 @@ def describe(number):
     length = len(thousand_separated)
     result = ""
     for i in range(length):
-        name = names[length-i-1]
         num = thousand_separated[i]
         if int(num) != 0:
             described = describe3(num)
-            result += f"{described} {name} و "
+            result += f"{described} {names[length-i-1]} و "
 
     if result.strip()[-2:] == " و":
         result = rreplace(result, " و", "", 1).strip()
